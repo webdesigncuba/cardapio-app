@@ -1,65 +1,85 @@
-import Image from "next/image";
+import { FaSignInAlt, FaUtensils} from "react-icons/fa";
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+  <main className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden px-4 sm:px-6 md:px-12">
+  {/* Hero Background Section */}
+  <div className="absolute inset-0 z-0">
+    <div
+      className="w-full h-full bg-cover bg-center"
+      data-alt="Cinematic, high-quality photograph of a sophisticated restaurant interior. Warm, atmospheric lighting, blurred background showing a chef or waiter in motion, elegant table settings with crystal glassware and fine dining details."
+      style={{
+        backgroundImage:
+          "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAC7c_I32fYpQhxNw3sA_GAJfd4T4q-Y98YiJFhuroObEeMPw2FU1EPLA9cAeuNB2KrFTT1WXoznqly-_QFnY7g2aPsefSYvnWXlAO1K8RTJaUOCqFr8g45tAL0_v6xLUQh_g-Qsfx_Gnjbcg1U1smNAqji9cB5sJ0CMbsdnboGnobF3gRx6jjdUd23ZaUoo9XeqkKL4g4Xde-uE7kzCUfruj9VPnCv1EdSbh0DxWMg1DLPU-M8o2bw')",
+      }}
+    ></div>
+    <div className="absolute inset-0 hero-gradient"></div>
+  </div>
+
+  {/* Header + Content Container */}
+  <div className="relative z-10 w-full pt-12 flex flex-col items-center text-center">
+    <div className="content-center-max flex flex-col items-center gap-4 md:gap-6">
+      <header className="w-full flex flex-col items-center text-center">
+        <div className="flex items-center gap-2 mb-2">
+         <FaUtensils className="text-secondary-container text-4xl" />
+          <h1 className="text-2xl md:text-4xl text-white tracking-tight font-extrabold uppercase">
+            RestoFlow
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        <div className="h-1 w-12 bg-secondary-container rounded-full my-6"></div>
+      </header>
+
+      {/* Value Prop Content */}
+      <section className="w-full">
+        <h2 className="text-lg md:text-3xl text-white mb-4 leading-tight font-semibold">
+          Gerencie seu restaurante com  <span className="text-secondary-fixed">precisão e rapidez.</span>
+        </h2>
+        <p className="text-sm md:text-base text-white max-w-prose md:max-w-1xl opacity-90 mx-auto">
+          A ferramenta definitiva para a hospitalidade profissional. Otimize as operações,
+          do PDV à cozinha.
+        </p>
+      </section>
     </div>
+  </div>
+
+  {/* Actions Cluster */}
+  <footer className="relative z-10 w-full pb-12 flex flex-col gap-4 items-center mt-8 md:mt-12">
+    {/* Primary Action */}
+    <button
+      className="btn-interact w-full md:w-80 bg-secondary-container text-on-secondary-container h-14 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 shadow-lg"
+     
+      style={{ filter: "brightness(1)" }}
+    >
+      <span>Entrar</span>
+      <FaSignInAlt className="material-symbols-outlined text-sm">arrow_forward</FaSignInAlt>
+    </button>
+
+    {/* Secondary Action */}
+    <button
+      className="btn-interact w-full md:w-80 bg-white/10 backdrop-blur-md border border-white/20 text-white h-14 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2"
+      style={{ filter: "brightness(1)" }}
+    >
+      <span>Registre sua empresa</span>
+    </button>
+
+    {/* Tertiary Mini-links */}
+    <div className="flex justify-center gap-6 mt-4 hero-links">
+      <a className="font-label-sm text-label-sm text-on-primary-container hover:text-white transition-colors" href="#">
+       Solicitar uma demonstração
+      </a>
+      <span className="w-1 h-1 rounded-full bg-outline-variant mt-2"></span>
+      <a className="font-label-sm text-label-sm text-on-primary-container hover:text-white transition-colors" href="#">
+        Preços
+      </a>
+    </div>
+  </footer>
+
+  {/* Decorative Elements */}
+  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary-container/30 to-transparent"></div>
+  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-primary to-transparent opacity-50"></div>
+</main>
+
+
   );
 }
