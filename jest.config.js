@@ -10,7 +10,7 @@ const customJestConfig = {
   },
   testMatch: [
     "<rootDir>/tests/**/*.[jt]s?(x)",
-    "<rootDir>/src/**/__tests__/**/*.[jt]s?(x)"
+    "<rootDir>/__tests__/**/*.[jt]s?(x)"
   ],
 };
 
