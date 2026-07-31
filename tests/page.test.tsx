@@ -1,7 +1,9 @@
 import React from "react";
+import { describe, expect, it, jest } from "@jest/globals";
 import { renderToStaticMarkup } from "react-dom/server";
-import Home from "./page";
-import RootLayout from "./layout";
+
+import Home from "@/app/page";
+import RootLayout from "@/app/layout";
 
 jest.mock("next/font/google", () => ({
   Geist: () => ({
