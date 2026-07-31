@@ -5,6 +5,12 @@ import { renderToStaticMarkup } from "react-dom/server";
 import Home from "@/app/page";
 import RootLayout from "@/app/layout";
 
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: ({ alt, src, width, height }) =>
+    React.createElement("img", { alt, src, width, height }),
+}));
+
 jest.mock("next/font/google", () => ({
   Geist: () => ({
     variable: "--font-geist-sans",
@@ -15,19 +21,16 @@ jest.mock("next/font/google", () => ({
 }));
 
 describe("Home page", () => {
-  it("renders the main hero content", () => {
+  it("renders the hero content and primary actions", () => {
     const html = renderToStaticMarkup(<Home />);
 
-    expect(html).toContain("RestoFlow");
-    expect(html).toContain("Gerencie seu restaurante");
-    expect(html).toContain("A ferramenta definitiva");
-  });
-
-  it("renders the primary and secondary actions", () => {
-    const html = renderToStaticMarkup(<Home />);
-
+    expect(html).toContain("Bem-vindo ao Cardapio");
+    expect(html).toContain(
+      "A plataforma inteligente de gestão de restaurantes"
+    );
     expect(html).toContain("Entrar");
-    expect(html).toContain("Registre sua empresa");
+    expect(html).toContain("Criar Conta");
+    expect(html).toContain("Logo Cardapio");
   });
 });
 
